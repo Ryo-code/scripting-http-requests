@@ -8,17 +8,17 @@ function getAndPrintHTMLChunks () {
     path: '/http-examples/step1.html'
   };
 
-  https.get(requestOptions, function (response){
+  https.get(requestOptions, function (res){
     console.log("Okay then...");
 
-    response.setEncoding('utf8');
+    res.setEncoding('utf8');
 
-    response.on('data', function (data) { //_cb when 'data' chunk is received
+    res.on('data', function (data) { //_cb when 'data' chunk is received
       console.log('Chunk Received. Length:', data.length);
       console.log(data);
     });
 
-    response.on('end', function() {
+    res.on('end', function() {
       console.log('Response stream complete.');
     });
 
