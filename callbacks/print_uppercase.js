@@ -1,16 +1,15 @@
+'use strict';
+const https = require('https');
+const getHTML = require('../step5-http-functions');
 
-var getHTML = require('./step5-http-functions'); // not "../"?
-
-
-var requestOptions = {
+const requestOptions = {
   host: 'sytantris.github.io',
   path: '/http-examples/step6/uppercase.html'
 };
 
 function printUpperCase (html) {
-
-  /* Write your code here! */
-  
+  let output = html.toUpperCase();
+  console.log(output);
 }
 
 getHTML(requestOptions, printUpperCase);
