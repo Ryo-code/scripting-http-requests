@@ -1,7 +1,8 @@
 'use strict';
 const https = require('https');
 
-function getHTML (options, callback) {
+module.exports = function getHTML (options, callback) {
+
   https.get(options, function (res){
     res.setEncoding('utf8');
 
@@ -16,15 +17,4 @@ function getHTML (options, callback) {
       console.log('Response stream complete.');
     });
   });
-}
-
-function printHTML (html) {
-  console.log(html);
-}
-
-var requestOptions = {
-  host: 'sytantris.github.io',
-  path: '/http-examples/step4.html'
 };
-
-getHTML(requestOptions, printHTML);
