@@ -10,10 +10,10 @@ module.exports = function getHTML (options, callback) {
 
     res.on('data', function (data) { //_cb when 'data' chunk is received
       fullData += data;
-      console.log(data);
     });
 
     res.on('end', function() {
+      callback(fullData);
       console.log('Response stream complete.');
     });
   });
